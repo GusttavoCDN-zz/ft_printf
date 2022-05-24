@@ -6,11 +6,21 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 23:23:53 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 00:29:46 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/24 11:53:36 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	length;
+
+	length = 0;
+	while (s[length] != '\0')
+		length++;
+	return (length);
+}
 
 int ft_putchar_int(char c)
 {
@@ -40,4 +50,19 @@ int ft_putnbr_int(int n)
 	number_len = ft_putstr_int(number);
 	free(number);
 	return (number_len);
+}
+
+int ft_putstr_reversed(char *str)
+{
+	int	i;
+	int	bytes;
+
+	bytes = ft_strlen(str);
+	i = bytes - 1;
+	while (i >= 0)
+	{
+		write(1, &str[i], sizeof(char) * 1);
+		i--;
+	}
+	return (bytes);
 }
