@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:22:01 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 11:48:42 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/24 12:48:23 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	print_format(va_list arguments, const char *format, int *size)
 	i = 0;
 	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
 			*size += verify_arguments(arguments, format, *size + 1);
 			i++;
@@ -57,6 +57,13 @@ static int	verify_arguments(va_list arguments, const char *format, int size)
 		return (ft_print_unsigned_int(va_arg(arguments, unsigned int)) + size);
 	else if (format[size] == 'p')
 		return (ft_print_pointer(va_arg(arguments, unsigned long)) + size);
+	else if (format[size] == 'x')
+		return (ft_print_hex_integer(va_arg(arguments, unsigned int), 'x') + size);
+	else if (format[size] == 'X')
+		return (ft_print_hex_integer(va_arg(arguments, unsigned int), 'X') + size);
+	else if (format[size] == '%')
+		return (ft_putchar_int('%') + size);
+	return (0);
 }
 
 

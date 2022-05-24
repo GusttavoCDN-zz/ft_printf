@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:12:27 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 11:42:29 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/24 12:44:42 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,28 @@ int	ft_print_pointer(unsigned long address)
 	{
 		number[i] = decimal_converter_to_hex(address % 16, 'x');
 		address = address / 16;
+		i++;
+	}
+	number[i] = '\0';
+	number_len += ft_putstr_reversed(number);
+	free(number);
+	return (number_len);
+}
+
+int ft_print_hex_integer(unsigned int nb, char type)
+{
+	char *number;
+	int number_len;
+	int i;
+
+	i = 0;
+	if (!nb)
+		return (write(1, "0", sizeof(char)));
+	number = (char *) malloc((calc_hex_length(nb) + 1) * sizeof(char));
+	while (nb)
+	{
+		number[i] = decimal_converter_to_hex(nb % 16, type);
+		nb = nb / 16;
 		i++;
 	}
 	number[i] = '\0';
