@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 23:23:53 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 12:34:44 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/24 12:57:20 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ size_t	ft_strlen(const char *s)
 	return (length);
 }
 
-int ft_putchar_int(char c)
+int	ft_putchar_int(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int ft_putstr_int(char *str)
+int	ft_putstr_int(char *str)
 {
 	int	i;
 
@@ -41,10 +41,10 @@ int ft_putstr_int(char *str)
 	return (i);
 }
 
-int ft_putnbr_int(int n)
+int	ft_putnbr_int(int n)
 {
-	int number_len;
-	char *number;
+	int		number_len;
+	char	*number;
 
 	number = ft_itoa(n);
 	number_len = ft_putstr_int(number);
@@ -52,7 +52,7 @@ int ft_putnbr_int(int n)
 	return (number_len);
 }
 
-int ft_putstr_reversed(char *str)
+int	ft_putstr_reversed(char *str)
 {
 	int	i;
 	int	bytes;

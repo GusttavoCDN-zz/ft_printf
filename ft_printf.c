@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:22:01 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 12:48:23 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/24 13:27:15 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static	void	print_format(va_list arguments, const char *format, int *size);
 static	int	verify_arguments(va_list arguments, const char *format, int size);
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	arguments;
-	int	size;
+	int		size;
 
 	va_start(arguments, format);
 	size = 0;
@@ -27,9 +27,9 @@ int ft_printf(const char *format, ...)
 	return (size - 1);
 }
 
-static void	print_format(va_list arguments, const char *format, int *size)
+static	void	print_format(va_list arguments, const char *format, int *size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (format[i] != '\0')
@@ -58,12 +58,10 @@ static int	verify_arguments(va_list arguments, const char *format, int size)
 	else if (format[size] == 'p')
 		return (ft_print_pointer(va_arg(arguments, unsigned long)) + size);
 	else if (format[size] == 'x')
-		return (ft_print_hex_integer(va_arg(arguments, unsigned int), 'x') + size);
+		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'x') + size);
 	else if (format[size] == 'X')
-		return (ft_print_hex_integer(va_arg(arguments, unsigned int), 'X') + size);
+		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'X') + size);
 	else if (format[size] == '%')
 		return (ft_putchar_int('%') + size);
 	return (0);
 }
-
-
