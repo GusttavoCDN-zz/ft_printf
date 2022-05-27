@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
+/*   ft_print_hex_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 11:12:27 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 13:09:45 by guda-sil@st      ###   ########.fr       */
+/*   Created: 2022/05/24 13:08:41 by guda-sil@st       #+#    #+#             */
+/*   Updated: 2022/05/26 23:58:53 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_print_pointer(unsigned long address)
+int	ft_print_hex_int(unsigned int nb, char type)
 {
 	char	*number;
 	int		number_len;
 	int		i;
 
 	i = 0;
-	if (!address)
-		return (write(1, "(nil)", sizeof(char) * 5));
-	number_len = write(1, "0x", sizeof(char) * 2);
-	number = (char *) malloc((calc_hex_length(address) + 1) * sizeof(char));
-	while (address)
+	number_len = 0;
+	if (!nb)
+		return (write(1, "0", sizeof(char)));
+	number = (char *) malloc((ft_calc_hex_length(nb) + 1) * sizeof(char));
+	while (nb)
 	{
-		number[i] = ft_decimal_to_hex(address % 16, 'x');
-		address = address / 16;
+		number[i] = ft_decimal_to_hex(nb % 16, type);
+		nb = nb / 16;
 		i++;
 	}
 	number[i] = '\0';
-	number_len += ft_putstr_reversed(number);
+	number_len = ft_putstr_reversed(number);
 	free(number);
 	return (number_len);
 }

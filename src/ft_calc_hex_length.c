@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex_int.c                                 :+:      :+:    :+:   */
+/*   ft_calc_hex_length.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 13:08:41 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 13:27:43 by guda-sil@st      ###   ########.fr       */
+/*   Created: 2022/05/24 13:02:18 by guda-sil@st       #+#    #+#             */
+/*   Updated: 2022/05/26 23:59:22 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_print_hex_int(unsigned int nb, char type)
+int	ft_calc_hex_length(unsigned long nb)
 {
-	char	*number;
-	int		number_len;
-	int		i;
+	int		len;
 
-	i = 0;
-	if (!nb)
-		return (write(1, "0", sizeof(char)));
-	number = (char *) malloc((ft_calc_hex_length(nb) + 1) * sizeof(char));
-	while (nb)
+	len = 0;
+	while (nb > 0)
 	{
-		number[i] = ft_decimal_to_hex(nb % 16, type);
 		nb = nb / 16;
-		i++;
+		len++;
 	}
-	number[i] = '\0';
-	number_len += ft_putstr_reversed(number);
-	free(number);
-	return (number_len);
+	return (len);
 }

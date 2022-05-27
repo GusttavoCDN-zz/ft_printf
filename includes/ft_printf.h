@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:19:21 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 13:28:18 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/26 23:26:03 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_print_unsigned_int(unsigned int n);
 int		ft_print_pointer(unsigned long address);
 int		ft_putstr_reversed(char *str);
 int		ft_print_hex_int(unsigned int nb, char type);
-int		calc_hex_length(unsigned long nb);
+int		ft_calc_hex_length(unsigned long nb);
+char	ft_decimal_to_hex(char digit, char type);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 00:20:30 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/24 13:04:15 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/26 23:28:38 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,6 @@ static	char	*ft_utoa(unsigned int n)
 	if (!str)
 		return (NULL);
 	i = size - 1;
-	if (n < 0)
-	{
-		n *= -1;
-		str[0] = '-';
-	}
 	while (n > 0)
 	{
 		str[--i] = (n % 10) + '0';
