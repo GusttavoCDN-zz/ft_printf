@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 23:23:53 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/27 01:44:58 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/27 01:57:28 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_putstr_int(char *str)
 	int	i;
 
 	i = 0;
+	if (str == NULL)
+		return (write(1, "(null)", sizeof(char) * 6));
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
