@@ -6,7 +6,7 @@
 /*   By: guda-sil@student.42sp.org.br <guda-sil@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:22:01 by guda-sil@st       #+#    #+#             */
-/*   Updated: 2022/05/27 00:13:23 by guda-sil@st      ###   ########.fr       */
+/*   Updated: 2022/05/27 01:44:57 by guda-sil@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printf(const char *format, ...)
 	size = 0;
 	print_format(arguments, format, &size);
 	va_end(arguments);
-	return (size - 1);
+	return (size);
 }
 
 static	void	print_format(va_list arguments, const char *format, int *size)
@@ -48,20 +48,20 @@ static	void	print_format(va_list arguments, const char *format, int *size)
 static int	verify_arguments(va_list arguments, const char *format, int i)
 {
 	if (format[i] == 'c')
-		return (ft_putchar_int(va_arg(arguments, int)) + i);
+		return (ft_putchar_int(va_arg(arguments, int)));
 	else if (format[i] == 's')
-		return (ft_putstr_int(va_arg(arguments, char *)) + i);
+		return (ft_putstr_int(va_arg(arguments, char *)));
 	else if (format[i] == 'd' || format[i] == 'i')
-		return (ft_putnbr_int(va_arg(arguments, int)) + i);
+		return (ft_putnbr_int(va_arg(arguments, int)));
 	else if (format[i] == 'u')
-		return (ft_print_unsigned_int(va_arg(arguments, unsigned int)) + i);
+		return (ft_print_unsigned_int(va_arg(arguments, unsigned int)));
 	else if (format[i] == 'p')
-		return (ft_print_pointer(va_arg(arguments, unsigned long)) + i);
+		return (ft_print_pointer(va_arg(arguments, unsigned long)));
 	else if (format[i] == 'x')
-		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'x') + i);
+		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'x'));
 	else if (format[i] == 'X')
-		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'X') + i);
+		return (ft_print_hex_int(va_arg(arguments, unsigned int), 'X'));
 	else if (format[i] == '%')
-		return (ft_putchar_int('%') + i);
+		return (ft_putchar_int('%'));
 	return (0);
 }

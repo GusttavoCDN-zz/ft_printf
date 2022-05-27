@@ -17,14 +17,14 @@ CC = cc
 
 all: ${NAME}
 
-${NAME}: ${OBJ} ${OBJ_src}
-	ar -rcs ${NAME} ${OBJ} ${OBJ_src} ${INC}
+${NAME}: ${OBJ}
+	ar -rcs ${NAME} ${OBJ} ${INC}
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
 
 clean:
-	${RM} ${OBJ} ${OBJ_src}
+	${RM} ${OBJ}
 
 fclean: clean
 	${RM} ${NAME}
