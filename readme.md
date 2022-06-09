@@ -10,7 +10,7 @@
        
 <h2 align="center"><strong>Oque é a FT_PRINTF?</strong></h2>
       
-> Esse é o terceiro projeto do curriculo da [42SP](https://www.42sp.org.br/). Consiste em criar uma função que seja capaz de ler de um fd uma linha por vez até o fim.
+> Esse é o terceiro projeto do curriculo da [42SP](https://www.42sp.org.br/). Consiste em criar uma versão propria da função printf do C.
 
 ### **Como funciona a FT_PRINTF_F**
 
